@@ -8,7 +8,6 @@ interface IForm {
 interface ICountry {
   text: string;
   id: number;
-  category: "TO_DO" | "DOING" | "DONE";
 }
 
 const countryState = atom<ICountry[]>({
@@ -25,7 +24,7 @@ function WantCountry() {
         register, handleSubmit, formState: { errors }, setValue
   } = useForm<IForm>()
   const handleValid = ({ country }: IForm) => {
-        setCtrys(oldCtrys => [{ text: country, id:Date.now(), category:"TO_DO" }, ...oldCtrys])
+        setCtrys(oldCtrys => [{ text: country, id:Date.now() }, ...oldCtrys])
         setValue("country", "");
   };
   // console.log(ctrys)
